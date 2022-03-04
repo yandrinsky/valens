@@ -1,0 +1,22 @@
+.background{
+    min-height: 300px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.background .content{
+    position: relative;
+    z-index: 2;
+}
+.dark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.1;
+}

@@ -1,0 +1,5 @@
+.ArticlesList{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 400px);
+}
