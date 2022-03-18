@@ -12,6 +12,7 @@ import Link from "next/link"
 import css from "./Header.module.css"
 import {GetStaticProps} from "next";
 import client from "../../../contentful";
+import LangSwitch from "../../LangSwith/LangSwith";
 function Header(props) {
     const [state, setState] = useState({menu: false});
 
@@ -21,6 +22,7 @@ function Header(props) {
         })
     }
     const menuCloseHandler = () =>{
+        console.log("menuCloseHandler");
         setState({
             menu: false,
         })
@@ -43,7 +45,7 @@ function Header(props) {
                             color="inherit"
                             aria-label="menu"
                             sx={{ mr: 2 }}
-                            onClick={toggleMenuHandler.bind(this)}
+                            onClick={toggleMenuHandler}
                         >
                             <MenuIcon />
                         </IconButton>
@@ -54,9 +56,8 @@ function Header(props) {
                                 <div className={css.title}><span>ICUMBI</span></div>
                             </Typography>
                         </Link>
-
-
-                        <Button color="inherit" className={css.name}>{props.name}</Button>
+                        {/*<Button color="inherit" className={css.name}>{props.name}</Button>*/}
+                        <LangSwitch/>
                     </Toolbar>
                 </AppBar>
             </Box>

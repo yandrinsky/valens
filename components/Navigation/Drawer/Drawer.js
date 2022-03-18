@@ -3,41 +3,37 @@ import {NavLink} from "react-router-dom";
 import css from "./Drawer.module.css"
 import Backdrop from "../../UI/Backdrop/Backdrop";
 import Link from "next/link"
+import {useRouter} from "next/router";
 
-class Drawer extends Component{
+function Drawer(props){
+    let router = useRouter();
 
-    renderLinks(links){
+    function renderLinks(links){
         return links.map((link, index)=>{
             return (
                 <li key={index}>
                     <Link
                         href={link.to}
-                        // to={link.to}
-                        // exact={link.exact}
-                        // activeClass={css.active}
-                        onClick={this.props.onClose}
                     >
-                        {link.label}
-
+                        <a href="" onClick={props.onClose}>{link.label}</a>
                     </Link>
                 </li>
             )
         })
     }
 
-    render() {
+    function render() {
 
         const cls = [css.Drawer]
 
-        if(!this.props.isOpen){
+        if(!props.isOpen){
             cls.push(css.close)
         }
 
         const links = [
-            // {to: '/', label: 'Главная', exact: true},
-            {to: '/', label: 'Главная', exact: true},
-            {to: '/about', label: 'О нас', exact: true},
-            {to: '/projects', label: 'Проекты', exact: true},
+            {to: '/', label: router.locale === "Ru" ? 'Главная' : router.locale === "En" ? 'Main' : router.locale === "Fr" ? "Principale" : "", exact: true},
+            {to: '/about', label: router.locale === "Ru" ? 'О нас' : router.locale === "En" ? 'About us' : router.locale === "Fr" ? "À propos de nous" : "", exact: true},
+            {to: '/projects', label: router.locale === "Ru" ? 'Проекты' : router.locale === "En" ? 'Projects' : router.locale === "Fr" ? "Projet" : "", exact: true},
         ]
 
 
@@ -45,17 +41,14 @@ class Drawer extends Component{
             <>
                 <nav className={cls.join(" ")}>
                     <ul>
-                        {this.renderLinks(links)}
+                        {renderLinks(links)}
                     </ul>
                 </nav>
-                {
-                    this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null
-                }
-
+                {props.isOpen ? <Backdrop onClick={props.onClose}/> : null }
             </>
-
         )
     }
+    return render();
 }
 
 export default Drawer

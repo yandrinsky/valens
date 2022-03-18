@@ -1,34 +1,29 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import client from "../contentful";
-import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
-import {Container, Col, Row} from "reactstrap";
 import {MainPage} from "../containers/MainPage/MainPage";
+import MainContainer from "../components/MainContainer/MainContainer";
+import {useRouter} from "next/router";
+import getLocale from "../functions/getLocale";
 
 const Home = (props) => {
-
+    let router = useRouter();
+    let title = getLocale("title", props.home.fields, router);
     return (
-    <div>
-      <Head>
-        <title>{props.home.title}</title>
-      </Head>
-
-        <MainPage home={props.home} articles={props.articles}/>
-
-    </div>
+        <MainContainer title={title}>
+            <MainPage home={props.home} articles={props.articles}/>
+        </MainContainer>
     )
 }
 
 export default Home;
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({locale}) => {
     const home = await client.getEntries({
         content_type: "home",
         limit: 1,
     })
     const articles = await client.getEntries({
         content_type: "article",
-        select: 'fields.title,fields.slug,fields.description,fields.action,fields.preview'
+        select: `fields.title${locale},fields.slug,fields.desc${locale},fields.preview`
     })
     const [homePage] = home.items;
     return {

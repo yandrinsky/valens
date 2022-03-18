@@ -4,7 +4,7 @@ import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 
 const Background = ({url, title, description}) => {
     return (
-        <div style={{background: `url(http:${url}) no-repeat center / cover`}}
+        <div style={{background: `url(${url}) no-repeat center / cover`}}
              className={css.background}
         >
             <div className={css.dark}/>

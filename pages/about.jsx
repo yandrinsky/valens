@@ -2,20 +2,18 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import client from "../contentful";
 import AboutPage from "../containers/AboutPage/AboutPage";
+import MainContainer from "../components/MainContainer/MainContainer";
 const About = props => {
     return (
-        <div>
-            <Head>
-                <title>My blog</title>
-            </Head>
+        <MainContainer title="About">
             <AboutPage about={props.about}/>
-        </div>
+        </MainContainer>
     )
 }
 
 export const getStaticProps = async () => {
     const about = await client.getEntries({
-        content_type: "page_about",
+        content_type: "aboutPage",
         limit: 1,
     })
     const [aboutPage] = about.items;

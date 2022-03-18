@@ -22,10 +22,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from "next/link"
+import {useState} from "react";
+import Loader from "../UI/Loader/Loader";
+import css from "./ArticleCard.module.css"
+
 
 export default function ArticleCard({title, description, button, preview, slug}) {
+    const [loading, setLoading] = useState(false);
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345 }} className={css.ArticleCard}>
+            {
+                loading ? <div className={css.ArticleCard__loading}>
+                    <Loader/>
+                </div> : null
+            }
+
+
             <CardMedia
                 component="img"
                 height="140"
@@ -42,8 +54,9 @@ export default function ArticleCard({title, description, button, preview, slug})
             </CardContent>
             <CardActions>
                 <Link href={`/articles/${slug}`}>
-                    <Button size="small">{button ? button : "Read"}</Button>
+                    <Button size="small" onClick={() => setLoading(true)}>{button ? button : "Read"}</Button>
                 </Link>
+
             </CardActions>
         </Card>
     );
