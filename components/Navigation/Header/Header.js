@@ -22,7 +22,6 @@ function Header(props) {
         })
     }
     const menuCloseHandler = () =>{
-        console.log("menuCloseHandler");
         setState({
             menu: false,
         })

@@ -3,8 +3,8 @@ import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 import css from "./Article.module.css"
 import MainContainer from "../MainContainer/MainContainer";
 import {useRouter} from "next/router";
-import getLocale from "../../functions/getLocale";
-import {getUrl} from "../../functions/getUrl";
+import getLocale from "../../funcs/getLocale";
+import {getUrl} from "../../funcs/getUrl";
 
 const Article = ({article}) => {
     const {slug, photo, date} = article.fields;

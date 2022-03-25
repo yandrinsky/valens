@@ -2,7 +2,7 @@ import React from 'react';
 import css from "./ArticlesList.module.css"
 import ArticleCard from "../ActicleCard/ArticleCard";
 import {useRouter} from "next/router";
-import getLocale from "../../functions/getLocale";
+import getLocale from "../../funcs/getLocale";
 const ArticlesList = ({articles}) => {
     return (
         <div className={css.ArticlesList}>

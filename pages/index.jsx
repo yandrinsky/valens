@@ -2,7 +2,7 @@ import client from "../contentful";
 import {MainPage} from "../containers/MainPage/MainPage";
 import MainContainer from "../components/MainContainer/MainContainer";
 import {useRouter} from "next/router";
-import getLocale from "../functions/getLocale";
+import getLocale from "../funcs/getLocale";
 
 const Home = (props) => {
     let router = useRouter();
@@ -32,7 +32,7 @@ export const getStaticProps = async ({locale}) => {
             home: homePage,
             articles: articles.items
         },
-        revalidate: 3600,
+        revalidate: 600,
     }
 };
 

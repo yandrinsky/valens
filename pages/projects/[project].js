@@ -5,7 +5,7 @@ import client from "../../contentful";
 import PageArticle from "../../components/Article/Article";
 import {useRouter} from "next/router";
 
-const Article = ({article}) => {
+const Project = ({project}) => {
     const router = useRouter();
 
     return (
@@ -17,66 +17,54 @@ const Article = ({article}) => {
                 </title>
             </Head>
             <main>
-                <PageArticle article={article}/>
+                <PageArticle article={project}/>
             </main>
         </div>
     );
 };
 
 
-export default Article;
+export default Project;
 
 export const getStaticPaths = async ({ locales }) => {
-    const articleEntries = await client.getEntries({
-        content_type: "article",
+    const projectEntries = await client.getEntries({
+        content_type: "project",
         select: 'fields.slug'
     })
 
-    const articlesPaths = articleEntries.items.map(item => {
+    const projectsPaths = projectEntries.items.map(item => {
             return {
                 params: {
-                    article: item.fields.slug,
+                    project: item.fields.slug,
                 }
             }
         })
 
-    const articlesAndLocalesPaths = [];
+    const projectsAndLocalesPaths = [];
 
     for (const locale of locales) {
-        articlesPaths.forEach(item => {
-            articlesAndLocalesPaths.push({ params: item.params, locale })
+        projectsPaths.forEach(item => {
+            projectsAndLocalesPaths.push({ params: item.params, locale })
         })
     }
 
     return {
-        paths: articlesAndLocalesPaths,
+        paths: projectsAndLocalesPaths,
         fallback: true,
     }
-
-    // return {
-    //     paths: articleEntries.items.map(item => {
-    //         return {
-    //             params: {
-    //                 article: item.fields.slug,
-    //             }
-    //         }
-    //     }),
-    //     fallback: false,
-    //
-    // }
 };
 
 export const getStaticProps = async ({params}) => {
-    const slug = params.article;
-    const article = await client.getEntries({
-        content_type: "article",
+    const slug = params.project;
+    const project = await client.getEntries({
+        content_type: "project",
         limit: 1,
         'fields.slug' : slug,
     })
 
     return {
         props: {
-            article: article.items[0],
+            project: project.items[0],
         },
         revalidate: 600,
     }

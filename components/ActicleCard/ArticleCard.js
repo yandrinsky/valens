@@ -27,7 +27,7 @@ import Loader from "../UI/Loader/Loader";
 import css from "./ArticleCard.module.css"
 
 
-export default function ArticleCard({title, description, button, preview, slug}) {
+export default function ArticleCard({title, description, button, preview, slug, type}) {
     const [loading, setLoading] = useState(false);
     return (
         <Card sx={{ maxWidth: 345 }} className={css.ArticleCard}>
@@ -53,7 +53,7 @@ export default function ArticleCard({title, description, button, preview, slug})
                 </Typography>
             </CardContent>
             <CardActions>
-                <Link href={`/articles/${slug}`}>
+                <Link href={type && type === "PROJECT" ? `/projects/${slug}` : `/articles/${slug}`}>
                     <Button size="small" onClick={() => setLoading(true)}>{button ? button : "Read"}</Button>
                 </Link>
 

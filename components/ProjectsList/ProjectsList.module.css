@@ -1,0 +1,23 @@
+.grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(300px, 400px));
+    grid-gap: 50px;
+    padding: 10px 0;
+}
+
+.project__title{
+    text-align: center;
+}
+
+.ProjectsList{
+
+}
+
+@media screen and (max-width: 665px){
+    .grid{
+        grid-template-columns: 1fr;
+        display: grid;
+        justify-content: center !important;
+    }
+}
