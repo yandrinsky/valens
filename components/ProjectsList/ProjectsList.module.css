@@ -10,14 +10,12 @@
     text-align: center;
 }
 
-.ProjectsList{
-
-}
 
 @media screen and (max-width: 665px){
     .grid{
-        grid-template-columns: 1fr;
-        display: grid;
-        justify-content: center !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

@@ -14,7 +14,7 @@ export function MainPage({home, articles}){
     const background = getUrl(home.fields.background);
 
     return (
-        <div>
+        <div className={css.MainPage}>
             <Background description={description} url={background} title={title}/>
             <div  className={styles.container}>
                 <ArticlesList articles={articles}/>

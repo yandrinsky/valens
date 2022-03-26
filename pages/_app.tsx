@@ -12,21 +12,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-// export const getStaticProps = async () => {
-//     const main = await client.getEntries({
-//         content_type: "main_info",
-//         limit: 1,
-//     })
-//     console.log("main", main);
-//     const [homePage] = main.items;
-//     return {
-//         props: {
-//             title: "Мой блог",
-//             home: homePage,
-//         },
-//         revalidate: 3600,
-//     }
-// };
 
 
 

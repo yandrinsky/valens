@@ -27,10 +27,10 @@ import Loader from "../UI/Loader/Loader";
 import css from "./ArticleCard.module.css"
 
 
-export default function ArticleCard({title, description, button, preview, slug, type}) {
+export default function ArticleCard({title, description, button, preview, slug, type, className}) {
     const [loading, setLoading] = useState(false);
     return (
-        <Card sx={{ maxWidth: 345 }} className={css.ArticleCard}>
+        <Card sx={{ maxWidth: 345 }} className={css.ArticleCard + " " + className}>
             {
                 loading ? <div className={css.ArticleCard__loading}>
                     <Loader/>

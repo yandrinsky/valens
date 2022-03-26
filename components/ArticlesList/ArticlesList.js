@@ -4,11 +4,11 @@ import ArticleCard from "../ActicleCard/ArticleCard";
 import {useRouter} from "next/router";
 import getLocale from "../../funcs/getLocale";
 const ArticlesList = ({articles}) => {
+    let router = useRouter();
     return (
         <div className={css.ArticlesList}>
             {
                 articles.map(article => {
-                    let router = useRouter();
                     //let title = article.fields["title_" + router.locale];
                     let title = getLocale('title', article.fields, router);
                     let description = getLocale('desc', article.fields, router);
@@ -17,7 +17,7 @@ const ArticlesList = ({articles}) => {
                     const {slug, preview} = article.fields;
                     return <ArticleCard key={slug} title={title} description={description}
                                         preview={preview?.fields.file.url} button={action}
-                                        slug={slug}
+                                        slug={slug} className={css.ArticleCard}
                     />
                 })
             }

@@ -33,12 +33,12 @@ export const getStaticPaths = async ({ locales }) => {
     })
 
     const projectsPaths = projectEntries.items.map(item => {
-            return {
-                params: {
-                    project: item.fields.slug,
-                }
+        return {
+            params: {
+                project: item.fields.slug,
             }
-        })
+        }
+    })
 
     const projectsAndLocalesPaths = [];
 
@@ -54,7 +54,7 @@ export const getStaticPaths = async ({ locales }) => {
     }
 };
 
-export const getStaticProps = async ({params}) => {
+export const getStaticProps = async ({params, locale}) => {
     const slug = params.project;
     const project = await client.getEntries({
         content_type: "project",

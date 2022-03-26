@@ -51,12 +51,12 @@ const LangSwitch = () => {
 
     const changeHandler = e => {
         const locale = e.target.value;
-        router.push(router.asPath, router.asPath, {locale,})
+        router.push(router.asPath, router.asPath, {locale})
     }
 
     return (
         <>
-            <FormControl sx={{ m: 1 }} variant="standard">
+            <FormControl sx={{ m: 1 }} variant="standard" >
                 <Select
                     labelId="demo-customized-select-label"
                     id="demo-customized-select"
