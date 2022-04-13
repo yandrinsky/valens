@@ -33,7 +33,7 @@ export const getStaticProps = async ({locale}) => {
             projectsPage,
             projects: projects.items
         },
-        revalidate: 600,
+        revalidate: 10,
     }
 };
 
