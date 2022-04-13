@@ -31,9 +31,9 @@ function Drawer(props){
         }
 
         const links = [
-            {to: '/', label: router.locale === "Ru" ? 'Главная' : router.locale === "En" ? 'Main' : router.locale === "Fr" ? "Principale" : "", exact: true},
-            {to: '/about', label: router.locale === "Ru" ? 'О нас' : router.locale === "En" ? 'About us' : router.locale === "Fr" ? "À propos de nous" : "", exact: true},
-            {to: '/projects', label: router.locale === "Ru" ? 'Проекты' : router.locale === "En" ? 'Projects' : router.locale === "Fr" ? "Projet" : "", exact: true},
+            {to: '/', label: router.locale === "Ru" ? 'Главная' : router.locale === "En" ? 'Main' : router.locale === "Fr" ? "Principale" : router.locale === "Rw" ? "Irembo" : "", exact: true},
+            {to: '/about', label: router.locale === "Ru" ? 'О нас' : router.locale === "En" ? 'About us' : router.locale === "Fr" ? "À propos de nous" : router.locale === "Rw" ? "Turi ba nde" : "", exact: true},
+            {to: '/projects', label: router.locale === "Ru" ? 'Проекты' : router.locale === "En" ? 'Projects' : router.locale === "Fr" ? "Projet" : router.locale === "Rw" ? "Imishinga" : "", exact: true},
         ]
 
 

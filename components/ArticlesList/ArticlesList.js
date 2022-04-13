@@ -13,7 +13,7 @@ const ArticlesList = ({articles}) => {
                     let title = getLocale('title', article.fields, router);
                     let description = getLocale('desc', article.fields, router);
                     let action = router.locale === "Ru"  ? "Читать" : router.locale === "En"
-                        ? "Read" : router.locale === "Fr" ? "Lire" : ""
+                        ? "Read" : router.locale === "Fr" ? "Lire" : router.locale === "Rw" ? "Gusoma" : ""
                     const {slug, preview} = article.fields;
                     return <ArticleCard key={slug} title={title} description={description}
                                         preview={preview?.fields.file.url} button={action}

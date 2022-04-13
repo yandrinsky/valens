@@ -13,7 +13,7 @@ const ProjectsList = ({projects}) => {
                 let description = getLocale('desc', project.fields, router);
 
                 let action = router.locale === "Ru"  ? "Подробнее" : router.locale === "En"
-                    ? "More..." : router.locale === "Fr" ? "Détaillé" : ""
+                    ? "More..." : router.locale === "Fr" ? "Détaillé" : router.locale === "Rw" ? "Amakuru arambuye" : ""
 
                 const {slug, preview} = project.fields;
                 return <ArticleCard key={slug} title={title} description={description}
@@ -31,7 +31,7 @@ const ProjectsList = ({projects}) => {
                 let description = getLocale('desc', project.fields, router);
 
                 let action = router.locale === "Ru"  ? "Подробнее" : router.locale === "En"
-                    ? "More..." : router.locale === "Fr" ? "Détaillé" : ""
+                    ? "More..." : router.locale === "Fr" ? "Détaillé" : router.locale === "Rw" ? "Amakuru arambuye" : ""
 
                 const {slug, preview} = project.fields;
                 return <ArticleCard key={slug} title={title} description={description}
@@ -49,7 +49,7 @@ const ProjectsList = ({projects}) => {
                 let description = getLocale('desc', project.fields, router);
 
                 let action = router.locale === "Ru"  ? "Подробнее" : router.locale === "En"
-                    ? "More..." : router.locale === "Fr" ? "Détaillé" : ""
+                    ? "More..." : router.locale === "Fr" ? "Détaillé" : router.locale === "Rw" ? "Amakuru arambuye" : ""
 
                 const {slug, preview} = project.fields;
                 return <ArticleCard key={slug} title={title} description={description}
@@ -66,7 +66,7 @@ const ProjectsList = ({projects}) => {
                 currentProjects.length > 0 ? <>
                     <hr/>
                     <h2 className={css.project__title}>{router.locale === "Ru"  ? "Текущие проекты" : router.locale === "En"
-                        ? "Current projects" : router.locale === "Fr" ? "Projets en cours" : ""}</h2>
+                        ? "Current projects" : router.locale === "Fr" ? "Projets en cours" : router.locale === "Rw" ? "Imishinga iri gukorwa" : ""}</h2>
                     <hr/>
                     <div className={css.grid}>
                         {currentProjects}
@@ -77,7 +77,7 @@ const ProjectsList = ({projects}) => {
                 permanentProjects.length > 0 ? <>
                     <hr/>
                     <h2 className={css.project__title} >{router.locale === "Ru"  ? "Постоянные проекты" : router.locale === "En"
-                        ? "Permanent projects" : router.locale === "Fr" ? "Projets permanents" : ""}</h2>
+                        ? "Permanent projects" : router.locale === "Fr" ? "Projets permanents" : router.locale === "Rw" ? "Imishinga ihoraho" : ""}</h2>
                     <hr/>
                     <div className={css.grid}>
                         {permanentProjects}
@@ -88,7 +88,7 @@ const ProjectsList = ({projects}) => {
                 archiveProjects.length > 0 ? <>
                     <hr/>
                     <h2 className={css.project__title}>{router.locale === "Ru"  ? "Завершённые проекты" : router.locale === "En"
-                        ? "Archival projects" : router.locale === "Fr" ? "Projets d'archives" : ""}</h2>
+                        ? "Archival projects" : router.locale === "Fr" ? "Projets d'archives" : router.locale === "Rw" ? "Imishinga yarangiye" : ""}</h2>
                     <hr/>
                     <div className={css.grid}>
                         {archiveProjects}
